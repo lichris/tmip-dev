@@ -11,6 +11,18 @@
 |
 */
 
+//  the test routes comes under and please comment out after use
+//
+//
+
+Route::get('/dashboard', function() {
+    return View::make('pages.after_login.sidebar');
+});
+
+//
+//
+// end of the test routes
 Route::get('/', 'SessionsController@index');
+
 
 Route::resource('sessions', 'SessionsController');

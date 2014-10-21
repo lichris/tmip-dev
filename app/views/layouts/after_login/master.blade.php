@@ -35,7 +35,7 @@
         </header>
         <div id="base">
         	<div id="sidebar">
-        		@yield('sidebar_content')
+        		@include('pages.after_login.sidebar')
         	</div>
         	<div id="content">
         		@yield('main_content')

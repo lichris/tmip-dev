@@ -15,8 +15,9 @@
 //
 //
 
-Route::get('/dashboard', function() {
-    return View::make('pages.after_login.sidebar');
+Route::get('/dashboard', function()
+{
+    return View::make('layouts.after_login.master');
 });
 
 //

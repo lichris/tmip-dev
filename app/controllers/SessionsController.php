@@ -14,7 +14,8 @@ class SessionsController extends \BaseController {
         //  if not, show the login page
 
         if (Auth::guest())
-            return View::make('pages.before_login.login');
+            return View::make('layouts.after_login.master');
+            //return View::make('pages.before_login.login');
 	}
 
 	/**

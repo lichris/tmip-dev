@@ -1,6 +1,3 @@
-@extends('layouts.after_login.master')
-
-@section('sidebar_content')
 <div id="sidebar">
 	<div class="sidebar-back"></div>
 	<div class="sidebar-content">
@@ -25,4 +22,3 @@
 		</ul>
 	</div>
 </div>
-@stop

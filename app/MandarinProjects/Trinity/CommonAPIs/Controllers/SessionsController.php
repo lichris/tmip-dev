@@ -13,4 +13,15 @@ class SessionsController extends \BaseController {
 		}
 	}
 
+    public function attemptToLogout() {
+
+        $currentUser = \Auth::user();
+
+        if ($currentUser) {
+            \Auth::logout();
+        }
+
+        return \Redirect::route('trinity.index');
+    }
+
 }

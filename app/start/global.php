@@ -79,3 +79,4 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+require app_path().'/MandarinProjects/Trinity/CommonAPIs/Configs/global.php';

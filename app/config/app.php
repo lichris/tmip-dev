@@ -122,6 +122,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'MandarinProjects\Trinity\CommonAPIs\ServiceProviders\Application',
+        'Way\Generators\GeneratorsServiceProvider',
 
 	),
 

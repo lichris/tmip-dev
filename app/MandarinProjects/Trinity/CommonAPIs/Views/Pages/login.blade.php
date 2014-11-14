@@ -1,54 +1,62 @@
 @extends('TrinityCommonViews::Layouts.master')
 
 @section('main_content')
-	<!-- START LOGIN BOX -->
-	<div class="box-type-login">
-		<div class="box text-center">
-			<div class="box-head"></div>
-			<div class="box-body box-centered no-padding" style="margin-top: 13%;">
-				
-				<h2 class="no-margin">
-					{{ HTML::image('img/logos/logo_The_Mandarin.png', '', array('id' => 'the-mandarin-logo')) }}
-				</h2>
-				
-				{{ Form::open(array()) }}
+    <!-- START LOGIN BOX -->
+    <div class="box-type-login">
+        <div class="box text-center">
+            <div class="box-head">
+                <h2 class="text-light text-white"></h2>
+                <h4 class="text-bold text-white">
+                    <i class="fa fa-ban"></i>
+                    <span>  Email or Password not Correct!</span>
+                </h4>
+            </div>
+            <div class="box-body box-centered">
+                {{ HTML::image('img/logos/logo_The_Mandarin.png',
+                               'The Mandarin Integration Platform',
+                               array('id' => 'login-page-The-Mandarin-Logo')) }}
 
-						<table id="login-form-table-group" class="col-xs-12 no-padding">
-							<tbody>
-								<tr>
-									<td class="col-xs-8 no-padding">
-										<div id="user-email" class="col-xs-12 no-padding">
-											{{ Form::email('user_email', '', array('class' => 'form-control no-padding',
-																					'placeholder' => 'Email')) }}
-										</div>
-									</td>
-									
-									<td class="col-xs-4 no-padding" rowspan="2" style="vertical-align: top;">
-										{{ Form::button('Login', array('type' => 'submit',
-																		'class' => 'btn btn-default col-xs-12 text-bolder',
-																		'id' => 'login-submit-btn')) }}
-									</td>
-								</tr>
-								<tr>
-									<td class="col-xs-8 no-padding">
-										<div id="user-password" class="col-xs-12 no-padding">
-											{{ Form::password('password', array('class' => 'form-control no-padding',
-																					 'placeholder' => 'Password')) }}
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+                {{ Form::open() }}
+                    <div class="row">
+                        <div class="col-xs-8" style="padding-right: 5px;">
+                            <div id="login-page-email-form-group" class="form-group">
+                                <div class="input-group col-xs-12">
+                                    {{ Form::email('user_email', null,
+                                                   array('id' => 'login-page-email-input',
+                                                         'class' => 'form-control',
+                                                         'placeholder' => 'Email')); }}
+                                </div>
+                            </div>
+                            <div id="login-page-password-form-group" class="form-group">
+                                <div class="input-group col-xs-12">
+                                    {{ Form::password('password',
+                                                   array('id' => 'login-page-password-input',
+                                                         'class' => 'form-control',
+                                                         'placeholder' => 'Password')); }}
+                                </div>
+                            </div>
+                        </div>
 
-				{{ Form::close() }}
+                        <div class="col-xs-4" style="padding-left: 0;">
+                            {{ Form::submit('Login', array('class' => 'col-xs-12 text-boldest',
+                                                           'id' => 'login-page-login-submit')); }}
+                        </div>
+                    </div>
 
-				<div id="forgot-password" class="text-center">
-					<br>forgot your password? <a href="" class="">Click Here</a>
-				</div>
-			</div><!--end .box-body -->
-			<div class="box-footer force-padding text-white" style="bottom: 0; display: none;">
-			</div>
-		</div>
-	</div>
-	<!-- END LOGIN BOX -->
+                {{ Form::close() }}
+
+            </div><!--end .box-body -->
+            <div class="box-footer force-padding text-white">
+                <span>
+                    <i>forgot your password?</i>
+                    <i class="text-bold">{{ HTML::linkRoute('trinity.forgotPassword', 'Click Here') }}</i>
+                </span>
+                <span>
+                    <p class="text-light text-white" style="margin-top: 60px;">TMIP version 0.0.1</p>
+                </span>
+
+            </div>
+        </div>
+    </div>
+    <!-- END LOGIN BOX -->
 @stop

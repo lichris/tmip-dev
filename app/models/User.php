@@ -33,4 +33,32 @@ class User extends \Eloquent implements UserInterface, RemindableInterface {
      */
 	protected $hidden = array('password', 'remember_token');
 
+    public function getNamedRoutePrefix() {
+        $userPermission = $this->user_has_permission_of_role_id;
+        $roleOfCurrentUser = \Role::where('id', '=', $userPermission)->firstOrFail()->role_name;
+
+        if ($roleOfCurrentUser == 'Administrator') {
+            return 'admins';
+        }
+        if ($roleOfCurrentUser == 'Consultant') {
+            return 'consultants';
+        }
+        if ($roleOfCurrentUser == 'Student') {
+            return 'students';
+        }
+        if ($roleOfCurrentUser == 'Instructor') {
+            return 'instructors';
+        }
+        if ($roleOfCurrentUser == 'HR') {
+            return 'hrs';
+        }
+        if ($roleOfCurrentUser == 'Secretary') {
+            return 'secretaries';
+        }
+        if ($roleOfCurrentUser == 'Executive') {
+            return 'executives';
+        }
+        return 'unknown';
+    }
+
 }

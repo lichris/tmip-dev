@@ -6,14 +6,19 @@ namespace MandarinProjects\Trinity\CommonAPIs\Routes;
     'uses' => '\MandarinProjects\Trinity\CommonAPIs\Controllers\PagesController@redirect',
     'before' => 'auth' ));
 
-\Route::get('/login', array( 'as' => 'trinity.login.get',
+\Route::get('/login', array('as' => 'trinity.login.get',
     'uses' => '\MandarinProjects\Trinity\CommonAPIs\Controllers\PagesController@index' ));
 
-\Route::post('/login', array( 'as' => 'trinity.login.post',
+\Route::post('/login', array('as' => 'trinity.login.post',
     'uses' => '\MandarinProjects\Trinity\CommonAPIs\Controllers\SessionsController@attemptToLogin' ));
 
-\Route::get('/logout', array( 'as' => 'trinity.logout.get',
+\Route::get('/logout', array('as' => 'trinity.logout.get',
     'uses' => '\MandarinProjects\Trinity\CommonAPIs\Controllers\SessionsController@attemptToLogout' ));
 
-\Route::post('/logout', array( 'as' => 'trinity.logout.post',
+\Route::post('/logout', array('as' => 'trinity.logout.post',
     'uses' => '\MandarinProjects\Trinity\CommonAPIs\Controllers\SessionsController@attemptToLogout' ));
+
+\Route::get('forgotPassword', array('as' => 'trinity.forgotPassword', function() {
+    return "forgotPassword";
+    // TODO : implement forgot password page
+}));

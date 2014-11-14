@@ -27,30 +27,9 @@ class PagesController extends \BaseController {
 	 */
 	public function redirect() {
         $currentUser = \Auth::user();
-        $userPermission = $currentUser->user_has_permission_of_role_id;
-        $roleOfCurrentUser = \Role::where('id', '=', $userPermission)->firstOrFail()->role_name;
+        $namedRoutePrefix = $currentUser->getNamedRoutePrefix();
 
-        if ($roleOfCurrentUser == 'Administrator') {
-            return "Administrator";
-        }
-        if ($roleOfCurrentUser == 'Consultant') {
-            return "Consultant";
-        }
-        if ($roleOfCurrentUser == 'Student') {
-            return \Redirect::route('trinity.students');
-        }
-        if ($roleOfCurrentUser == 'Instructor') {
-            return "Instructor";
-        }
-        if ($roleOfCurrentUser == 'HR') {
-            return "HR";
-        }
-        if ($roleOfCurrentUser == 'Secretary') {
-            return "Secretary";
-        }
-        if ($roleOfCurrentUser == 'Executive') {
-            return "Executive";
-        }
+        return \Redirect::route('trinity.'.$namedRoutePrefix);
 
         // TODO : build error handler
         return 'bad request will be added error handler';

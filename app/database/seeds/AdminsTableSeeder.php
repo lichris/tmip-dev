@@ -2,8 +2,8 @@
 
 class AdminsTableSeeder extends Seeder {
 
-	public function run()
-	{
+    public function run()
+    {
         Admin::create([
             'user_id' => 1,
         ]);
@@ -16,6 +16,6 @@ class AdminsTableSeeder extends Seeder {
         Admin::create([
             'user_id' => 4,
         ]);
-	}
+    }
 
 }

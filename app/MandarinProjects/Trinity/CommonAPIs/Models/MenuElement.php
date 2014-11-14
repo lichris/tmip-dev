@@ -10,6 +10,7 @@ class MenuElement {
     private $hasSubMenu;
 	private $isExpand;
 	private $isActive;
+    private $fontAwesomeIcon;
 
     /**
      * @return mixed
@@ -62,7 +63,7 @@ class MenuElement {
     /**
      * @return boolean
      */
-    public function isHasSubMenu()
+    public function hasSubMenu()
     {
         return $this->hasSubMenu;
     }
@@ -75,18 +76,19 @@ class MenuElement {
         $this->hasSubMenu = $hasSubMenu;
     }
 
-    public function __construct($name="", $url="#", $current_url="", $subMenu=NULL) {
+    public function __construct($name="", $url="#", $fontAwesomeIcon="", $current_url="", $subMenu=NULL) {
         $this->name = $name;
         $this->url = $url;
+        $this->fontAwesomeIcon = $fontAwesomeIcon;
         $this->subMenu = $subMenu;
         $this->hasSubMenu = false;
         if ($this->subMenu != NULL) $this->hasSubMenu = true;
 	    $this->isActive = false;
 	    $this->isExpand = false;
-	    if (strlen(strstr($current_url, URL::route($url)))>0) {
+	    if (strlen(strstr($current_url, \URL::route($url)))>0) {
 		    $this->setIsExpand(true);
 	    }
-	    if (URL::route($url) == $current_url) {
+	    if (\URL::route($url) == $current_url) {
 		    $this->setIsActive(true);
 	    }
     }
@@ -122,8 +124,28 @@ class MenuElement {
 	public function setIsExpand($isExpand)
 	{
 		$this->isExpand = $isExpand;
-		$this->isActive = !$isExpand;
+        $this->isActive = $isExpand;
 	}
+
+    public function getIsExpandAndIsActive() {
+        return $this->isExpand && $this->isActive;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFontAwesomeIcon()
+    {
+        return $this->fontAwesomeIcon;
+    }
+
+    /**
+     * @param string $fontAwesomeIcon
+     */
+    public function setFontAwesomeIcon($fontAwesomeIcon)
+    {
+        $this->fontAwesomeIcon = $fontAwesomeIcon;
+    }
 
 
 } 

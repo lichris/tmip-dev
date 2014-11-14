@@ -4,8 +4,19 @@ namespace MandarinProjects\Trinity\Students\Controllers;
 
 class PagesController extends \BaseController {
 
+
+    function __construct()
+    {
+        $currentUser = \Auth::user();
+        \View::share('currentUser', $currentUser);
+    }
+
     public function showMyClass() {
-        return 'showMyClass';
+        return \View::make('TrinityStudentsViews::Pages.showMyClass');
+    }
+
+    public function showMyProfile() {
+        return \View::make('TrinityStudentsViews::Pages.showMyProfile');
     }
 
     public function showIndividually() {

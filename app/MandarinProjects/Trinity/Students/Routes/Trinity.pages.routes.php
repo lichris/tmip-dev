@@ -8,6 +8,16 @@ namespace MandarinProjects\Trinity\Students\Routes;
         return \Redirect::route('trinity.students.myClass.showMyClass');
     }));
 
+    \Route::group(array('prefix' => 'profile'), function() {
+
+        \Route::get('/', array('as' => 'trinity.students.profile', function() {
+            return \Redirect::route('trinity.students.profile.showMyProfile');
+        }));
+
+        \Route::get('/showMyProfile', array('as' => 'trinity.students.profile.showMyProfile',
+            'uses' => '\MandarinProjects\Trinity\Students\Controllers\PagesController@showMyProfile'));
+    });
+
     \Route::group(array('prefix' => 'myClass'), function() {
 
         \Route::get('/', array('as' => 'trinity.students.myClass', function() {
@@ -41,7 +51,11 @@ namespace MandarinProjects\Trinity\Students\Routes;
 
     \Route::group(array('prefix' => 'comprehensiveEvaluation'), function() {
 
-        \Route::get('/', array('as' => 'trinity.students.comprehensiveEvaluation.showComprehensiveEvaluation',
+        \Route::get('/', array('as' => 'trinity.students.comprehensiveEvaluation', function() {
+            return \Redirect::route('trinity.students.comprehensiveEvaluation.showComprehensiveEvaluation');
+        }));
+
+        \Route::get('/showComprehensiveEvaluation', array('as' => 'trinity.students.comprehensiveEvaluation.showComprehensiveEvaluation',
             'uses' => '\MandarinProjects\Trinity\Students\Controllers\PagesController@showComprehensiveEvaluation'));
 
     });
@@ -49,11 +63,8 @@ namespace MandarinProjects\Trinity\Students\Routes;
     \Route::group(array('prefix' => 'manageMyClass'), function() {
 
         \Route::get('/', array('as' => 'trinity.students.manageMyClass', function() {
-            return \Redirect::route('trinity.students.manageMyClass.showManageMyClass');
+            return \Redirect::route('trinity.students.manageMyClass.showAbsenceManagement');
         }));
-
-        \Route::get('/showManageMyClass', array('as' => 'trinity.students.manageMyClass.showManageMyClass',
-            'uses' => '\MandarinProjects\Trinity\Students\Controllers\PagesController@showManageMyClass'));
 
         \Route::get('/showAbsenceManagement', array('as' => 'trinity.students.manageMyClass.showAbsenceManagement',
             'uses' => '\MandarinProjects\Trinity\Students\Controllers\PagesController@showAbsenceManagement'));

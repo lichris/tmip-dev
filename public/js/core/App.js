@@ -114,7 +114,7 @@
 	};
 
 	p._closeMenus = function(menu) {
-		menu.find('> li > ul').slideUp(220, function() {
+		menu.find('> li > ul').slideUp(500, function() {
 			$(this).closest('li').removeClass('expanded');
 		});
 	};
@@ -127,7 +127,7 @@
 		}
 		else {
 			item.addClass('expanding');
-			item.find('> ul').slideDown(220, function() {
+			item.find('> ul').slideDown(500, function() {
 				item.addClass('expanded');
 				item.removeClass('expanding');
 			});

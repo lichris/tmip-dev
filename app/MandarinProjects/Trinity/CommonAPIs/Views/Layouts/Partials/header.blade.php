@@ -13,7 +13,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="header-navbar-collapse">
         <ul class="nav navbar-nav">
-            <li><a href="../../html/dashboards/dashboard.html"><i class="fa fa-home fa-lg"></i></a></li>
+            <li><a href="{{ URL::route('trinity.index') }}"><i class="fa fa-home fa-lg"></i></a></li>
         </ul><!--end .nav -->
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
@@ -74,10 +74,13 @@
             </li><!--end .dropdown -->
             <li><span class="navbar-devider"></span></li>
             <li class="dropdown">
-                <a href="javascript:void(0);" class="navbar-profile dropdown-toggle text-bold" data-toggle="dropdown">Daniel Johnson <i class="fa fa-fw fa-angle-down"></i> <img class="img-circle" src="../../assets/img/avatar1.jpg?1401481655" alt=""></a>
+                <a href="javascript:void(0);" class="navbar-profile dropdown-toggle text-bold" data-toggle="dropdown">{{ $user->user_name_kor }}
+                    <i class="fa fa-fw fa-angle-down"></i>
+                    <img class="img-circle" src="../../assets/img/avatar1.jpg?1401481655" alt="">
+                </a>
                 <ul class="dropdown-menu animation-slide">
                     <li class="dropdown-header">Config</li>
-                    <li><a href="../../html/pages/profile.html">My profile</a></li>
+                    <li>{{ HTML::linkRoute('trinity.'.$namedRoutePrefix.'.profile', '내 프로필') }}</li>
                     <li><a href="../../html/pages/blog/post.html">My blog <span class="badge badge-danger pull-right">16</span></a></li>
                     <li><a href="../../html/pages/calendar.html">My appointments</a></li>
                     <li class="divider"></li>

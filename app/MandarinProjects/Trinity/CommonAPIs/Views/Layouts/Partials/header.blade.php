@@ -76,15 +76,13 @@
             <li class="dropdown">
                 <a href="javascript:void(0);" class="navbar-profile dropdown-toggle text-bold" data-toggle="dropdown">{{ $user->user_name_kor }}
                     <i class="fa fa-fw fa-angle-down"></i>
-                    <img class="img-circle" src="../../assets/img/avatar1.jpg?1401481655" alt="">
+                    <img class="img-circle" src="/profile/small/{{ $user->id }}" alt="">
                 </a>
                 <ul class="dropdown-menu animation-slide">
-                    <li class="dropdown-header">Config</li>
-                    <li>{{ HTML::linkRoute('trinity.'.$namedRoutePrefix.'.profile', '내 프로필') }}</li>
-                    <li><a href="../../html/pages/blog/post.html">My blog <span class="badge badge-danger pull-right">16</span></a></li>
+                    <li>{{ HTML::linkRoute('trinity.'.$namedRoutePrefix.'.profile', $user->user_name_kor.'님의 개인 공간') }}</li>
                     <li><a href="../../html/pages/calendar.html">My appointments</a></li>
                     <li class="divider"></li>
-                    <li><a href="../../html/pages/login.html"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
+                    <li><a href="{{ URL::route('trinity.logout.post') }}"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
                 </ul><!--end .dropdown-menu -->
             </li><!--end .dropdown -->
         </ul><!--end .nav -->

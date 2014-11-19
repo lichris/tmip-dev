@@ -11,4 +11,6 @@ class Company extends \Eloquent {
                             'logo_image_location', ];
 
     public $timestamps = false;
+
+    protected $table = 'companies';
 }

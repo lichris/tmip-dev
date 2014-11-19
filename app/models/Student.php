@@ -7,4 +7,6 @@ class Student extends \Eloquent {
                             'employee_number', ];
 
     public $timestamps = false;
+
+    protected $table = 'students';
 }

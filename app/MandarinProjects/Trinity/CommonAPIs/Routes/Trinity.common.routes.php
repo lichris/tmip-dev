@@ -2,6 +2,8 @@
 
 namespace MandarinProjects\Trinity\CommonAPIs\Routes;
 
+use Illuminate\Support\Facades\Response;
+
 \Route::get('/', array( 'as' => 'trinity.index',
     'uses' => '\MandarinProjects\Trinity\CommonAPIs\Controllers\PagesController@redirect',
     'before' => 'auth' ));
@@ -22,3 +24,19 @@ namespace MandarinProjects\Trinity\CommonAPIs\Routes;
     return "forgotPassword";
     // TODO : implement forgot password page
 }));
+
+\Route::get('profile/small/{user_id}', function($user_id = null) {
+    $path = __DIR__.'/../../Resources/Images/Profiles/user_profile_'.$user_id.'_140_140.png';
+    //if (file_exists($path)) {
+        return \Response::download($path);
+    //}
+    dd($path);
+});
+
+\Route::get('profile/big/{user_id}', function($user_id = null) {
+    $path = __DIR__.'/../../Resources/Images/Profiles/user_profile_'.$user_id.'_540_393.png';
+    //if (file_exists($path)) {
+        return \Response::download($path);
+    //}
+    dd($path);
+});

@@ -54,7 +54,17 @@
                     @include('TrinityCommonViews::Layouts.Partials.sidebar')
                 </div>
                 <div id="content">
-                    @yield('main_content')
+                    <section>
+                        <ol class="breadcrumb">
+                            @yield('main_content_breadcrumb')
+                        </ol>
+                        <div class="section-header">
+                            @yield('main_content_section-header')
+                        </div>
+                        <div class="section-body">
+                            @yield('main_content_section-body')
+                        </div>
+                    </section>
                 </div>
             </div>
 

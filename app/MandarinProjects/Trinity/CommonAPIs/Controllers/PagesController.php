@@ -19,7 +19,6 @@ class PagesController extends \BaseController {
 		}
 
         return \View::make('TrinityCommonViews::Pages.login')->with('currentUser', $currentUser);
-
 	}
 
 	/**

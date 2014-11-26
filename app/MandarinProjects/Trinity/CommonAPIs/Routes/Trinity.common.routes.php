@@ -25,16 +25,16 @@ use Illuminate\Support\Facades\Response;
     // TODO : implement forgot password page
 }));
 
-\Route::get('profile/small/{user_id}', function($user_id = null) {
-    $path = __DIR__.'/../../Resources/Images/Profiles/user_profile_'.$user_id.'_140_140.png';
+\Route::get('profile/small/{id}', function($id = null) {
+    $path = __DIR__.'/../../Resources/Images/Profiles/user_profile_'.$id.'_140_140.png';
     //if (file_exists($path)) {
         return \Response::download($path);
     //}
     dd($path);
 });
 
-\Route::get('profile/big/{user_id}', function($user_id = null) {
-    $path = __DIR__.'/../../Resources/Images/Profiles/user_profile_'.$user_id.'_540_393.png';
+\Route::get('profile/big/{id}', function($id = null) {
+    $path = __DIR__.'/../../Resources/Images/Profiles/user_profile_'.$id.'_540_393.png';
     //if (file_exists($path)) {
         return \Response::download($path);
     //}

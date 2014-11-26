@@ -1,8 +1,9 @@
 <?php
 
 class Student extends \Eloquent {
-	protected $fillable = [ 'user_id',
-                            'student_is_employee_of_company_id',
+	protected $fillable = [ 'id',
+                            'employee_of_company_id',
+                            'deputy',
                             'position',
                             'employee_number', ];
 

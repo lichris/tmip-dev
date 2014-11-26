@@ -1,18 +1,27 @@
 <?php
 
-use \Illuminate\Support\Facades\Crypt;
+// Composer: "fzaninotto/faker": "v1.3.0"
+use Faker\Factory as Faker;
 
 class StudentsTableSeeder extends Seeder {
 
 	public function run()
 	{
-
+		$faker = Faker::create();
         Student::create([
-            'user_id' => 6,
-            'student_is_employee_of_company_id' => 1,
+            'id' => 1,
+            'employee_of_company_id' => 1,
             'position' => '차장',
-            'employee_number' => Crypt::encrypt('262061'),
+            'employee_number' => '123456'
         ]);
 	}
 
 }
+
+//
+//$table->unsignedInteger('id');
+//$table->foreign('id')->references('id')->on('users');
+//$table->integer('employee_of_company_id')->unsigned();
+//$table->foreign('employee_of_company_id')->references('id')->on('companies');
+//$table->string('position');
+//$table->string('employee_number')->nullable();

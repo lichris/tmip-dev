@@ -10,8 +10,8 @@ class Role extends \Eloquent {
 
     public $timestamps = false;
 
-    public function get_role_name($id_number) {
-        $role = Role::findOfFail($id_number);
+    public function getRoleName($id) {
+        $role = Role::findOrFail($id);
 
         \App::error(function(ModelNotFoundException $e)
         {

@@ -8,11 +8,11 @@ class PagesController extends \BaseController {
     function __construct()
     {
         $currentUser = \Auth::user();
-        $currentUserAsStudent = \Student::where('user_id', '=', $currentUser->id)->firstOrFail();
-        $currentUserWorksFor = \Company::find($currentUserAsStudent->student_is_employee_of_company_id);
+        $currentStudent = \Student::where('id', '=', $currentUser->id)->firstOrFail();
+        $currentStudentIsEmployeeOf = \Company::find($currentStudent->employee_of_company_id);
         \View::share('currentUser', $currentUser);
-        \View::share('currentUserAsStudent', $currentUserAsStudent);
-        \View::share('currentUserWorksFor', $currentUserWorksFor);
+        \View::share('currentStudent', $currentStudent);
+        \View::share('currentStudentIsEmployeeOf', $currentStudentIsEmployeeOf);
     }
 
     public function showMyClass() {

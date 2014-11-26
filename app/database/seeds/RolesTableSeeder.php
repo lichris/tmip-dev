@@ -1,32 +1,22 @@
 <?php
 
-// Composer: "fzaninotto/faker": "v1.3.0"
-use Faker\Factory as Faker;
-
 class RolesTableSeeder extends Seeder {
+
+    protected $role_name_array =[ 'Admin',
+                                'Consultant',
+                                'Student',
+                                'Instructor',
+                                'HR',
+                                'Secretary',
+                                'Executive', ];
 
 	public function run()
 	{
-        Role::create([
-            'role_name' => 'Administrator'
-        ]);
-        Role::create([
-            'role_name' => 'Consultant'
-        ]);
-        Role::create([
-            'role_name' => 'Student'
-        ]);
-        Role::create([
-            'role_name' => 'Instructor'
-        ]);
-        Role::create([
-            'role_name' => 'HR'
-        ]);
-        Role::create([
-            'role_name' => 'Secretary'
-        ]);
-        Role::create([
-            'role_name' => 'Executive'
-        ]);
+        foreach($this->role_name_array as $role_name) {
+            Role::create([
+                'role_name' => $role_name,
+            ]);
+        }
 	}
+
 }

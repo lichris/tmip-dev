@@ -13,7 +13,7 @@ class User extends \Eloquent implements UserInterface, RemindableInterface {
                             'user_name_eng',
                             'user_email',
                             'password',
-                            'user_has_permission_of_role_id',
+                            'role_id',
                             'private_email',
                             'gender',
                             'age',
@@ -33,31 +33,15 @@ class User extends \Eloquent implements UserInterface, RemindableInterface {
      */
 	protected $hidden = array('password', 'remember_token');
 
-    public function getNamedRoutePrefix() {
-        $userPermission = $this->user_has_permission_of_role_id;
-        $roleOfCurrentUser = \Role::where('id', '=', $userPermission)->firstOrFail()->role_name;
+    public function getRoleName() {
+        $userRoleId = $this->role_id;
+        $roleName = \Role::where('id', '=', $userRoleId)->firstOrFail()->role_name;
+        return $roleName;
+    }
 
-        if ($roleOfCurrentUser == 'Administrator') {
-            return 'admins';
-        }
-        if ($roleOfCurrentUser == 'Consultant') {
-            return 'consultants';
-        }
-        if ($roleOfCurrentUser == 'Student') {
-            return 'students';
-        }
-        if ($roleOfCurrentUser == 'Instructor') {
-            return 'instructors';
-        }
-        if ($roleOfCurrentUser == 'HR') {
-            return 'hrs';
-        }
-        if ($roleOfCurrentUser == 'Secretary') {
-            return 'secretaries';
-        }
-        if ($roleOfCurrentUser == 'Executive') {
-            return 'executives';
-        }
-        return 'unknown';
+    public function getNamedRoutePrefix() {
+        $roleName = $this->getRoleName();
+        $roleName = strtolower($roleName);
+        return $roleName . 's';
     }
 }

@@ -7,21 +7,17 @@ class StudentsTableSeeder extends Seeder {
 
 	public function run()
 	{
-		$faker = Faker::create();
-        Student::create([
-            'id' => 1,
-            'employee_of_company_id' => 1,
-            'position' => '차장',
-            'employee_number' => '123456'
-        ]);
+        $role_id = Role::where('role_name', '=', 'Student')->firstOrFail()->id;
+        $students = User::where('role_id', '=', $role_id)->get();
+        foreach($students as $student)
+        {
+            Student::create([
+                'id' => $student->id,
+                'employee_of_company_id' => rand(1, 10),
+                'position' => '차장',
+                'employee_number' => '123456'
+            ]);
+        }
 	}
 
 }
-
-//
-//$table->unsignedInteger('id');
-//$table->foreign('id')->references('id')->on('users');
-//$table->integer('employee_of_company_id')->unsigned();
-//$table->foreign('employee_of_company_id')->references('id')->on('companies');
-//$table->string('position');
-//$table->string('employee_number')->nullable();

@@ -7,18 +7,56 @@ class UsersTableSeeder extends Seeder {
 
 	public function run()
     {
+        $count = 1;
         $faker = Faker::create();
-        User::create([
-            'role_id' => 3,
-            'user_name_kor' => '추성훈',
-            'user_name_eng' => 'Choo Sunghoon',
-            'user_email' => $faker->companyEmail,
-            'private_email' => $faker->email,
-            'phone_number' => $faker->phoneNumber,
-            'password' => \Hash::make('1234'),
-            'gender' => 'M',
-            'age' => 33,
-        ]);
+        $role_id = Role::where('role_name', '=', 'Student')->firstOrFail()->id;
+        foreach(range(1, 20) as $index)
+        {
+            User::create([
+                'role_id' => $role_id,
+                'user_name_kor' => '학습자'.$count,
+                'user_name_eng' => 'Test Student',
+                'user_email' => 'test_'.$count.'@test_stud.com',
+                'private_email' => $faker->email,
+                'phone_number' => $faker->phoneNumber,
+                'password' => \Hash::make('1234'),
+                'gender' => 'M',
+                'age' => 33,
+            ]);
+            $count++;
+        }
+        $role_id = Role::where('role_name', '=', 'Instructor')->firstOrFail()->id;
+        foreach(range(1, 20) as $index)
+        {
+            User::create([
+                'role_id' => $role_id,
+                'user_name_kor' => '교수진'.$count,
+                'user_name_eng' => 'Test Instructor',
+                'user_email' => 'test_'.$count.'@test_inst.com',
+                'private_email' => $faker->email,
+                'phone_number' => $faker->phoneNumber,
+                'password' => \Hash::make('1234'),
+                'gender' => 'M',
+                'age' => 33,
+            ]);
+            $count++;
+        }
+        $role_id = Role::where('role_name', '=', 'HR')->firstOrFail()->id;
+        foreach(range(1, 20) as $index)
+        {
+            User::create([
+                'role_id' => $role_id,
+                'user_name_kor' => 'HR'.$count,
+                'user_name_eng' => 'Test HR',
+                'user_email' => 'test_'.$count.'@test_hr.com',
+                'private_email' => $faker->email,
+                'phone_number' => $faker->phoneNumber,
+                'password' => \Hash::make('1234'),
+                'gender' => 'M',
+                'age' => 33,
+            ]);
+            $count++;
+        }
 	}
 
 }

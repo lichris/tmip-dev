@@ -19,7 +19,7 @@ class CreateInstructors extends Migration {
             $table->string('user_name_chn')->nullable();
             $table->string('list_of_handling_classes')->nullable();
             $table->string('date_of_birth', 8);
-            $table->string('resident_number');
+            $table->string('resident_number')->nullable();
             $table->string('bank_name');
             $table->string('bank_account_number');
             $table->string('specialized_on_lecture_type_id');

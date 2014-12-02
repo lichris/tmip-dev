@@ -1,29 +1,18 @@
 <?php
 
 class Company extends \Eloquent {
-	protected $fillable = [ 'company_name_kor',
-                            'company_name_eng',
+	protected $fillable = [ 'name_kor',
+                            'name_eng',
                             'address_kor',
                             'address_eng',
                             'contact_email',
                             'contact_number_1',
                             'contact_number_2',
-                            'list_of_hr_ids_in_charge_of',
-                            'logo_img_filename', ];
+                            'file_location_of_logo_img', ];
 
     protected $table = 'companies';
+
+    public function employees() {
+        return $this->hasMany('Student', 'company_id');
+    }
 }
-
-
-//
-//$table->increments('id');
-//$table->string('company_name_kor')->unique();
-//$table->string('company_name_eng')->nullable();
-//$table->string('address_kor');
-//$table->string('address_eng')->nullable();
-//$table->string('contact_email')->nullable();
-//$table->string('contact_number_1');
-//$table->string('contact_number_2')->nullable();
-//$table->string('list_of_hr_ids_in_charge_of')->nullable();
-//$table->string('logo_img_filename')->nullable();
-//$table->timestamps();

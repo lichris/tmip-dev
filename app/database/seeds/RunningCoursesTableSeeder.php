@@ -11,9 +11,12 @@ class RunningCoursesTableSeeder extends Seeder {
             $ends_on_date = strtotime($created_course->ends_on);
             $starts_at_time = date("h:i:s", strtotime($created_course->starts_at));
             $running_date = $created_course->running_date;
-            $running_date = explode(',', $running_date);
             $running_date_count = count($running_date);
-
+            if ($running_date[$running_date_count - 1] == ',') {
+                // get rid of last ,
+                $running_date = substr($running_date, 0, -1);
+            }
+            $running_date = explode(',', $running_date);
             var_dump($running_date);
 
             for ($date = $starts_on_date; $date <= $ends_on_date; $date += 60 * 60 * 24)
@@ -37,7 +40,6 @@ class RunningCoursesTableSeeder extends Seeder {
                     'start_time_planned' => ''.$date.' '.$starts_at_time,
                 ]);
                 $session_count++;
-                //echo (''.$date.' '.$starts_at_time);
             }
 
             unset($dates);

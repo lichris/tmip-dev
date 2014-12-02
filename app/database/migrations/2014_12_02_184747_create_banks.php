@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateLectureTypes extends Migration {
+class CreateBanks extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,13 @@ class CreateLectureTypes extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('lecture_types', function(Blueprint $table)
+		Schema::create('banks', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->string('lecture_type_name');
+
+            $table->string('name');
+
+			$table->timestamps();
 		});
 	}
 
@@ -27,7 +30,7 @@ class CreateLectureTypes extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('lecture_types');
+		Schema::drop('banks');
 	}
 
 }

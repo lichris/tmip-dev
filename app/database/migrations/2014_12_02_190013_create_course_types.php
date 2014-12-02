@@ -15,9 +15,15 @@ class CreateCourseTypes extends Migration {
 		Schema::create('course_types', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('course_type_name');
-            $table->string('parent_course_type_name')->nullable();
-            $table->boolean('select_multiple');
+
+            $table->string('name');
+
+            // if set true, can select multiple number of types
+            $table->boolean('can_select_multiple')->default(false);
+
+            // self fk for multiple selection of course types
+            $table->unsignedInteger('parent_id')->nullable();
+            $table->foreign('parent_id')->references('id')->on('course_types');
 		});
 	}
 

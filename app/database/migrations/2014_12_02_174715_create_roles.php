@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class DeleteLectureTypes extends Migration {
+class CreateRoles extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,13 @@ class DeleteLectureTypes extends Migration {
 	 */
 	public function up()
 	{
-		Schema::drop('lecture_types');
+		Schema::create('roles', function(Blueprint $table)
+		{
+			$table->increments('id');
+
+            // role name
+			$table->string('name')->unique();
+		});
 	}
 
 
@@ -23,11 +29,7 @@ class DeleteLectureTypes extends Migration {
 	 */
 	public function down()
 	{
-		Schema::create('lecture_types', function(Blueprint $table)
-		{
-			$table->increments('id');
-			$table->timestamps();
-		});
+		Schema::drop('roles');
 	}
 
 }

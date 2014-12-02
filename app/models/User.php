@@ -9,15 +9,16 @@ class User extends \Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
 
-    protected $fillable = [ 'user_name_kor',
-                            'user_name_eng',
-                            'user_email',
+    protected $fillable = [ 'account_email',
                             'password',
+                            'name_kor',
+                            'name_eng',
                             'role_id',
                             'private_email',
+                            'phone_number',
                             'gender',
                             'age',
-                            'phone_number' ];
+                            'file_location_of_profile_img', ];
 
 	/**
     * The database table used by the model.
@@ -32,6 +33,26 @@ class User extends \Eloquent implements UserInterface, RemindableInterface {
      * @var array
      */
 	protected $hidden = array('password', 'remember_token');
+
+    public function role() {
+        return $this->belongsTo('Role');
+    }
+
+    public function students() {
+        return $this->hasMany('Student');
+    }
+
+    public function instructors() {
+        return $this->hasMany('Instructor');
+    }
+
+    public function hrs() {
+        return $this->hasMany('HR');
+    }
+
+    public function consultants() {
+        return $this->hasMany('Consultant');
+    }
 
     public function getRoleName() {
         $userRoleId = $this->role_id;

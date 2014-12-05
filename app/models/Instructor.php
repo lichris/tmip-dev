@@ -22,8 +22,8 @@ class Instructor extends \Eloquent {
     public function specializedOnCourseTypes() {
         return $this->belongsToMany('Course_type',
                                     'instructors_specialize_course_types',
-                                    'course_type_id',
-                                    'instructor_id');
+                                    'instructor_id',
+                                    'course_type_id');
     }
 
 }

@@ -18,6 +18,9 @@ class CreateCourseTypes extends Migration {
 
             $table->string('name');
 
+            // if set true, has sub types
+            $table->boolean('has_sub_types')->default(false);
+
             // if set true, can select multiple number of types
             $table->boolean('can_select_multiple')->default(false);
 

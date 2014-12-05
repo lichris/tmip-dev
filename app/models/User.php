@@ -38,31 +38,19 @@ class User extends \Eloquent implements UserInterface, RemindableInterface {
         return $this->belongsTo('Role');
     }
 
-    public function students() {
-        return $this->hasMany('Student');
+    public function student() {
+        return $this->hasOne('Student', 'user_id');
     }
 
-    public function instructors() {
-        return $this->hasMany('Instructor');
+    public function instructor() {
+        return $this->hasOne('Instructor', 'user_id');
     }
 
-    public function hrs() {
-        return $this->hasMany('HR');
+    public function hr() {
+        return $this->hasOne('HR', 'user_id');
     }
 
-    public function consultants() {
-        return $this->hasMany('Consultant');
-    }
-
-    public function getRoleName() {
-        $userRoleId = $this->role_id;
-        $roleName = \Role::where('id', '=', $userRoleId)->firstOrFail()->role_name;
-        return $roleName;
-    }
-
-    public function getNamedRoutePrefix() {
-        $roleName = $this->getRoleName();
-        $roleName = strtolower($roleName);
-        return $roleName . 's';
+    public function Consultant() {
+        return $this->hasOne('Consultant', 'user_id');
     }
 }

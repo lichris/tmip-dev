@@ -1,41 +1,20 @@
 <?php
 
-// Composer: "fzaninotto/faker": "v1.3.0"
-use Faker\Factory as Faker;
-
 class CompaniesTableSeeder extends Seeder {
 
 	public function run()
 	{
-		$faker = Faker::create();
-
-		foreach(range(1, 10) as $index)
-		{
-            $temp = $faker->userName;
-            $kor = $temp."_kor";
-            $eng = $temp."_eng";
-			Company::create([
-                'company_name_kor' => $kor,
-                'company_name_eng' => $eng,
-                'address_kor' => $faker->address,
-                'address_eng' => $faker->address,
-                'contact_email' => $faker->companyEmail,
-                'contact_number_1' => $faker->phoneNumber,
-			]);
-		}
+		for ($count = 1; $count <= 20; $count++) {
+            Company::create([
+                'name_kor' => '기업 테스트'.$count,
+                'name_eng' => 'Test Company'.$count,
+                'address_kor' => '서울시 영등포구<br>국제금융로 10<br>투 아이에프씨 22층',
+                'address_eng' => 'TWO IFC Level 22<br>10 Gukjegeumyung-rp<br>Yeongdeungpo-gu Seoul',
+                'contact_email' => 'contact'.$count.'@asdfasdf.net',
+                'contact_number_1' => rand(10000000000, 99999999999),
+                'contact_number_2' => rand(10000000000, 99999999999),
+            ]);
+        }
 	}
 
 }
-
-//
-//$table->increments('id');
-//$table->string('company_name_kor')->unique();
-//$table->string('company_name_eng')->nullable();
-//$table->string('address_kor');
-//$table->string('address_eng')->nullable();
-//$table->string('contact_email')->nullable();
-//$table->string('contact_number_1');
-//$table->string('contact_number_2')->nullable();
-//$table->string('list_of_hr_ids_in_charge_of')->nullable();
-//$table->string('logo_img_filename')->nullable();
-//$table->timestamps();

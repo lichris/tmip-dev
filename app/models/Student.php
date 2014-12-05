@@ -2,7 +2,7 @@
 
 class Student extends \Eloquent {
 	protected $fillable = [ 'user_id',
-                            'employee_of_company_id',
+                            'company_id',
                             'deputy',
                             'position', ];
 
@@ -11,10 +11,18 @@ class Student extends \Eloquent {
     protected $table = 'students';
 
     public function user() {
-        return $this->belongsTo('User');
+        return $this->belongsTo('User', 'user_id');
     }
 
     public function employeeOf() {
-        return $this->belongsTo('Company');
+        return $this->belongsTo('Company', 'company_id');
+    }
+
+    public function attendingCourses() {
+        return $this->belongsToMany('Course',
+                                    'students_attend_courses',
+                                    'student_id',
+                                    'course_id')
+                                    ->withPivot('late_sessions', 'absented_sessions', 'comments_by_instructor');
     }
 }

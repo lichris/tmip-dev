@@ -39,47 +39,14 @@
                     <li><a href="../../html/pages/login.html">Mark as read <span class="pull-right"><i class="fa fa-arrow-right"></i></span></a></li>
                 </ul><!--end .dropdown-menu -->
             </li><!--end .dropdown -->
-            <li class="dropdown">
-                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-dashboard"></i></a>
-                <ul class="dropdown-menu animation-dock">
-                    <li class="dropdown-header">Server load</li>
-                    <li class="dropdown-progress">
-                        <a href="javascript:void(0);">
-                            <div class="dropdown-label">
-                                <span class="text-light">Server load <strong>Today</strong></span>
-                                <strong class="pull-right">93%</strong>
-                            </div>
-                            <div class="progress"><div class="progress-bar progress-bar-danger" style="width: 93%"></div></div>
-                        </a>
-                    </li><!--end .dropdown-progress -->
-                    <li class="dropdown-progress">
-                        <a href="javascript:void(0);">
-                            <div class="dropdown-label">
-                                <span class="text-light">Server load <strong>Yesterday</strong></span>
-                                <strong class="pull-right">30%</strong>
-                            </div>
-                            <div class="progress"><div class="progress-bar progress-bar-success" style="width: 30%"></div></div>
-                        </a>
-                    </li><!--end .dropdown-progress -->
-                    <li class="dropdown-progress">
-                        <a href="javascript:void(0);">
-                            <div class="dropdown-label">
-                                <span class="text-light">Server load <strong>Lastweek</strong></span>
-                                <strong class="pull-right">74%</strong>
-                            </div>
-                            <div class="progress"><div class="progress-bar progress-bar-warning" style="width: 74%"></div></div>
-                        </a>
-                    </li><!--end .dropdown-progress -->
-                </ul><!--end .dropdown-menu -->
-            </li><!--end .dropdown -->
             <li><span class="navbar-devider"></span></li>
             <li class="dropdown">
-                <a href="javascript:void(0);" class="navbar-profile dropdown-toggle text-bold" data-toggle="dropdown">{{ $user->user_name_kor }}
+                <a href="javascript:void(0);" class="navbar-profile dropdown-toggle text-bold" data-toggle="dropdown">{{ $user->name_kor }}
                     <i class="fa fa-fw fa-angle-down"></i>
                     <img class="img-circle" src="/profile/small/{{ $user->id }}" alt="">
                 </a>
                 <ul class="dropdown-menu animation-slide">
-                    <li>{{ HTML::linkRoute('trinity.'.$namedRoutePrefix.'.profile', $user->user_name_kor.'님의 개인 공간') }}</li>
+                    <li>{{ HTML::linkRoute('trinity.'.$namedRoutePrefix.'.profile', $user->name_kor.'님의 개인 공간') }}</li>
                     <li><a href="../../html/pages/calendar.html">My appointments</a></li>
                     <li class="divider"></li>
                     <li><a href="{{ URL::route('trinity.logout.post') }}"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>

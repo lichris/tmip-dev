@@ -18,9 +18,6 @@ class CreateCourses extends Migration {
 
             $table->string('name');
 
-            $table->unsignedInteger('course_type_id');
-            $table->foreign('course_type_id')->references('id')->on('course_types');
-
             $table->unsignedInteger('instructor_id');
             $table->foreign('instructor_id')->references('id')->on('instructors');
 

@@ -21,7 +21,7 @@
                         <div class="col-xs-8" style="padding-right: 5px;">
                             <div id="login-page-email-form-group" class="form-group">
                                 <div class="input-group col-xs-12">
-                                    {{ Form::email('user_email', null,
+                                    {{ Form::email('account_email', null,
                                                    array('id' => 'login-page-email-input',
                                                          'class' => 'form-control',
                                                          'placeholder' => 'Email')); }}

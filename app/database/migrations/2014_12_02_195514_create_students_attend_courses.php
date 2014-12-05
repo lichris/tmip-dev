@@ -28,15 +28,15 @@ class CreateStudentsAttendCourses extends Migration {
 
             $table->text('comments_by_instructor')->nullable();
 		});
-	}
+}
 
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
+/**
+ * Reverse the migrations.
+ *
+ * @return void
+ */
+public function down()
 	{
 		Schema::drop('students_attend_courses');
 	}

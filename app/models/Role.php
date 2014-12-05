@@ -10,4 +10,7 @@ class Role extends \Eloquent {
 
     public $timestamps = false;
 
+    public function usersByRole() {
+        return $this->hasMany('User');
+    }
 }

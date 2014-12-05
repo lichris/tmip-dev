@@ -2,7 +2,7 @@
 
 class RolesTableSeeder extends Seeder {
 
-    protected $role_name_array =[ 'Admin',
+    protected $name_array =[ 'Admin',
                                 'Consultant',
                                 'Student',
                                 'Instructor',
@@ -12,9 +12,9 @@ class RolesTableSeeder extends Seeder {
 
 	public function run()
 	{
-        foreach($this->role_name_array as $role_name) {
+        foreach($this->name_array as $name) {
             Role::create([
-                'role_name' => $role_name,
+                'name' => $name,
             ]);
         }
 	}

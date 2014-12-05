@@ -25,18 +25,14 @@ use Illuminate\Support\Facades\Response;
     // TODO : implement forgot password page
 }));
 
-\Route::get('profile/small/{id}', function($id = null) {
-    $path = __DIR__.'/../../Resources/Images/Profiles/user_profile_'.$id.'_140_140.png';
-    //if (file_exists($path)) {
-        return \Response::download($path);
-    //}
-    dd($path);
+\Route::get('/profile/small/{id}', function($id = null) {
+    $file_location_of_profile_img = \User::find($id)->file_location_of_profile_img;
+    $path = __DIR__.'/../../Resources/Images/Profiles/'.$file_location_of_profile_img.'_profile_small.png';
+    return \Response::download($path);
 });
 
-\Route::get('profile/big/{id}', function($id = null) {
-    $path = __DIR__.'/../../Resources/Images/Profiles/user_profile_'.$id.'_540_393.png';
-    //if (file_exists($path)) {
-        return \Response::download($path);
-    //}
-    dd($path);
+\Route::get('/profile/big/{id}', function($id = null) {
+    $file_location_of_profile_img = \User::find($id)->file_location_of_profile_img;
+    $path = __DIR__.'/../../Resources/Images/Profiles/'.$file_location_of_profile_img.'_profile_big.png';
+    return \Response::download($path);
 });

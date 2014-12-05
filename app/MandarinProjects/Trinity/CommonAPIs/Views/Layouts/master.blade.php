@@ -78,6 +78,7 @@
 
             <!-- Always put App.js last in your javascript imports -->
             {{ HTML::script('js/core/App.js') }}
+            {{ HTML::script('js/core/tmip-app.js') }}
         </body>
 
     @endif

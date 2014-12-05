@@ -7,7 +7,7 @@
 @stop
 
 @section('main_content_section-header')
-    <h3><i class="fa fa-fw fa-arrow-circle-right text-gray-light"></i>{{ $currentUser->user_name_kor }}님의 프로필</h3>
+    <h3><i class="fa fa-fw fa-arrow-circle-right text-gray-light"></i>{{ $currentUser->name_kor }}님의 프로필</h3>
 @stop
 
 @section('main_content_section-body')
@@ -36,24 +36,24 @@
                                     </div>
                                     <div class="box-body style-inverse">
                                         <p class="text-white">
-                                            <span class="text-xl text-light">{{ $currentUser->user_name_kor }} </span>
-                                            <span class="text-lg text-light">({{ $currentUser->user_name_eng }})</span><br/>
-                                            <h4>{{ $currentStudentIsEmployeeOf->company_name_kor }}</h4>
+                                            <span class="text-xl text-light">{{ $currentUser->name_kor }} </span>
+                                            <span class="text-lg text-light">({{ $currentUser->name_eng }})</span><br/>
+                                            <h4>{{ $currentStudentIsEmployeeOf->name_kor }}</h4>
                                             <span class="text-light">{{ $currentStudent->deputy }}</span><br/>
                                             <span class="text-light">{{ $currentStudent->position }}</span>
                                         </p>
                                         <address class="text-white">
                                             <abbr title="직장"><i class="fa fa-phone fa-fw"></i></abbr> 회사 연락처<br>
                                             <abbr title="핸드폰"><i class="fa fa-mobile fa-fw"></i></abbr> {{ $currentUser->phone_number }}<br>
-                                            <abbr title="이메일"><i class="fa fa-at fa-fw"></i></abbr> {{ $currentUser->user_email }}
+                                            <abbr title="이메일"><i class="fa fa-at fa-fw"></i></abbr> {{ $currentUser->account_email }}
                                         </address>
                                     </div>
 
                                     <div class="box-body style-inverse">
                                         <address class="text-white">
-                                            <h4>{{ $currentStudentIsEmployeeOf->company_name_kor }}</h4>
+                                            <h4>{{ $currentStudentIsEmployeeOf->name_kor }}</h4>
                                             {{ $currentStudentIsEmployeeOf->address_kor }}<br/><br/>
-                                            <h4>{{ $currentStudentIsEmployeeOf->company_name_eng }}</h4>
+                                            <h4>{{ $currentStudentIsEmployeeOf->name_eng }}</h4>
                                             {{ $currentStudentIsEmployeeOf->address_eng }}<br/>
                                         </address>
                                         <address class="text-white">

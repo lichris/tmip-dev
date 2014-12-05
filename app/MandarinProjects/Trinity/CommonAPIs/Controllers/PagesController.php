@@ -26,9 +26,9 @@ class PagesController extends \BaseController {
 	 */
 	public function redirect() {
         $currentUser = \Auth::user();
-        $namedRoutePrefix = $currentUser->getNamedRoutePrefix();
+        $role = $currentUser->role;
 
-        return \Redirect::route('trinity.'.$namedRoutePrefix);
+        return \Redirect::route('trinity.'.$role->name);
 
         // TODO : build error handler
         return 'bad request will be added error handler';

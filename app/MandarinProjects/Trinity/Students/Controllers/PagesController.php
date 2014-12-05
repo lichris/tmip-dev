@@ -4,23 +4,29 @@ namespace MandarinProjects\Trinity\Students\Controllers;
 
 class PagesController extends \BaseController {
 
+    private $currentUser;
+    private $currentStudent;
+    private $currentStudentIsEmployeeOf;
 
     function __construct()
     {
-        $currentUser = \Auth::user();
-        $currentStudent = \Student::where('id', '=', $currentUser->id)->firstOrFail();
-        $currentStudentIsEmployeeOf = \Company::find($currentStudent->employee_of_company_id);
-        \View::share('currentUser', $currentUser);
-        \View::share('currentStudent', $currentStudent);
-        \View::share('currentStudentIsEmployeeOf', $currentStudentIsEmployeeOf);
+        $this->currentUser = \Auth::user();
+        $this->currentStudent = $this->currentUser->student;
+        $this->currentStudentIsEmployeeOf = $this->currentStudent->employeeOf;
+        \View::share('currentUser', $this->currentUser);
     }
 
     public function showMyClass() {
-        return \View::make('TrinityStudentsViews::Pages.showMyClass');
+        $attending_courses = $this->currentStudent->attendingCourses;
+
+        return \View::make('TrinityStudentsViews::Pages.showMyClass')
+                ->with('attending_courses', $this->currentStudent->attendingCourses);
     }
 
     public function showMyProfile() {
-        return \View::make('TrinityStudentsViews::Pages.showMyProfile');
+        return \View::make('TrinityStudentsViews::Pages.showMyProfile')
+                ->with('currentStudent', $this->currentStudent)
+                ->with('currentStudentIsEmployeeOf', $this->currentStudentIsEmployeeOf);
     }
 
     public function showIndividually() {

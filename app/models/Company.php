@@ -15,4 +15,8 @@ class Company extends \Eloquent {
     public function employees() {
         return $this->hasMany('Student', 'company_id');
     }
+
+    public function managers() {
+        return $this->hasMany('HR', 'company_id');
+    }
 }

@@ -1,0 +1,29 @@
+
+
+
+
+
+
+
+
+
+내 클래스(tmip.thecorporation.co.kr/student/myClass)
+	개별 보기(tmip.thecorporation.co.kr/student/myClass/showIndivisually)
+
+레벨테스트(/levelTest)
+	레벨테스트 참여(/levelTest/participate)
+	결과보기(/levelTest/showResults)
+
+교육 종합평가(/comprehensiveEvaluation)
+
+수업관리(/manageMyClass)
+	결석 사유(/manageMyClass/absenceManagement)
+
+커뮤니티(/community)
+	방명록(/community/guestBook)
+	게시판(/community/board)
+		공지사항(/community/board/bulletin)
+		학습자료(/community/board/learningMaterials)
+		과제(/community/board/assignment)
+
+내 교육 스케줄(/mySchedule)

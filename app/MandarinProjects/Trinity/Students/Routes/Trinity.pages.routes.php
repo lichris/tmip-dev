@@ -27,7 +27,7 @@ namespace MandarinProjects\Trinity\Students\Routes;
         \Route::get('/showMyClass', array('as' => 'trinity.Student.myClass.showMyClass',
             'uses' => '\MandarinProjects\Trinity\Students\Controllers\PagesController@showMyClass'));
 
-        \Route::get('/showIndividually', array('as' => 'trinity.Student.myClass.showIndividually',
+        \Route::get('/showIndividually/{course_id?}', array('as' => 'trinity.Student.myClass.showIndividually',
             'uses' => '\MandarinProjects\Trinity\Students\Controllers\PagesController@showIndividually'));
 
     });

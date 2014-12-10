@@ -56,7 +56,7 @@
                                     @elseif($attending_course->status == '취소')
                                         <td><span class="badge badge-black">{{ $attending_course->status }}</span></td>
                                     @endif
-                                        <td>{{ $attending_course->name }}</td>
+                                        <td><a href="{{ URL::action('trinity.Student.myClass.showIndividually', array($attending_course->id)) }}">{{ $attending_course->name }}</a></td>
                                         <td>{{ date('H:i:s', strtotime($attending_course->start_datetime)) }} / {{ $attending_course->duration }} 분</td>
                                         <td>1</td>
                                         <td>{{ date('Y-m-d', strtotime($attending_course->start_datetime)) }} ~ {{ date('Y-m-d', strtotime($attending_course->end_datetime)) }}</td>

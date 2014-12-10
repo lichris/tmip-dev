@@ -8,29 +8,39 @@ class PagesController extends \BaseController {
     private $currentStudent;
     private $currentStudentIsEmployeeOf;
 
-    function __construct()
-    {
+    function __construct() {
+
         $this->currentUser = \Auth::user();
         $this->currentStudent = $this->currentUser->student;
         $this->currentStudentIsEmployeeOf = $this->currentStudent->employeeOf;
         \View::share('currentUser', $this->currentUser);
+
     }
 
     public function showMyClass() {
-        $attending_courses = $this->currentStudent->attendingCourses;
 
         return \View::make('TrinityStudentsViews::Pages.showMyClass')
                 ->with('attending_courses', $this->currentStudent->attendingCourses);
+
     }
 
     public function showMyProfile() {
+
         return \View::make('TrinityStudentsViews::Pages.showMyProfile')
                 ->with('currentStudent', $this->currentStudent)
                 ->with('currentStudentIsEmployeeOf', $this->currentStudentIsEmployeeOf);
+
     }
 
-    public function showIndividually() {
-        return 'showIndividually';
+    public function showIndividually($course_id = null) {
+
+        if ($course_id == null) {
+            return \View::make('TrinityStudentsViews::Pages.showIndividually_without_course_id')
+                    ->with('attending_courses', $this->currentStudent->attendingCourses);
+        }
+
+        return \View::make('TrinityStudentsViews::Pages.showIndividually_with_course_id')
+                ->with('$course_id', $course_id);
     }
 
     public function showLevelTest() {

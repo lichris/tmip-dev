@@ -1,0 +1,21 @@
+
+
+내 클래스 (+개별보기)
+
+학사관리  (+개별보기)
+	레벨테스트 관리
+
+수업관리
+	과제 출제 및 관리
+
+비용관리
+
+커뮤니티(/community)
+	잡풀
+	방명록(/community/guestBook)
+	게시판(/community/board)
+		공지사항(/community/board/bulletin)
+		학습자료(/community/board/learningMaterials)
+		과제(/community/board/assignment)
+
+내 교육 스케줄(/mySchedule)

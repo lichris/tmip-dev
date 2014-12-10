@@ -30,7 +30,7 @@
                         <div class="box-tiles style-white">
                             <div class="row">
                                 <!-- START PROFILE SIDEBAR -->
-                                <div class="col-xs-3 style-inverse">
+                                <div class="col-sm-3 style-inverse">
                                     <div class="holder">
                                         <img class="img-rounded img-responsive" src="/profile/big/{{ $currentUser->id }}" alt="" />
                                     </div>
